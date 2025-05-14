@@ -1,6 +1,6 @@
 {
   "name": "hiccup-to-mithril",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "A javascript native hiccup-style syntax parser that uses Mithril.js for HTML Generation.",
   "keywords": [
     "hiccup",
