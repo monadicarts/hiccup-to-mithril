@@ -15,7 +15,14 @@
     "parser",
     "javascript",
     "ssr",
-    "vdom"
+    "vdom",
+    "virtual-dom",
+    "virtualdom",
+    "virtual-dom-parser",
+    "template",
+    "json",
+    "ui",
+    "frontend"
   ],
   "license": "MIT",
   "author": "Justin Greisiger Frost <justinfrost@duck.com>",
@@ -26,6 +33,11 @@
   },
   "exports": {
     ".": "./src/index.js"
+  },
+  "sideEffects": false,
+  "engines": {
+    "node": ">=18.0.0",
+    "npm": ">=8.6.0"
   },
   "dependencies": {
     "mithril": "^2.3.0",

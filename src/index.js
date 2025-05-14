@@ -14,7 +14,7 @@ import renderToString from 'mithril-node-render';
  * @returns {Object|String|Number|null} A Mithril vnode, or a primitive/null value.
  */
 function htm(hiccupNode) {
-    // 1. Handle non-array inputs (primitives, components, existing vnodes)
+    // Handle non-array inputs (primitives, components, existing vnodes)
     if (!Array.isArray(hiccupNode)) {
         // Pass through strings, numbers, booleans, null, undefined, Mithril components, or existing vnodes directly.
         // Mithril's m() handles these appropriately when they are children.
@@ -26,27 +26,23 @@ function htm(hiccupNode) {
         return null; // Mithril treats null children as empty
     }
 
-    // 2. Destructure the Hiccup array
+    // Destructure the Hiccup array
     let tagOrComponent = hiccupNode[0];
     let attrs = {};
     let childrenStartIndex = 1;
 
-    // 3. Check for an attributes object
+    // Check for an attributes object
     // It must be a plain object and not an array (which would be a child)
     // and not a Mithril vnode (which would also be a child or component).
-    if (
-        hiccupNode.length > 1 &&
-        typeof hiccupNode[1] === 'object' &&
-        hiccupNode[1] !== null &&
-        !Array.isArray(hiccupNode[1]) &&
-        !('tag' in hiccupNode[1]) && // Check if it's not already a vnode
-        !('view' in hiccupNode[1]) // Check if it's not a POJO component
-    ) {
-        attrs = hiccupNode[1];
-        childrenStartIndex = 2;
+    if (hiccupNode.length > 1 && typeof hiccupNode[1] === 'object' &&
+        hiccupNode[1] !== null && !Array.isArray(hiccupNode[1]) &&
+        // Check if it's not already a vnode or a POJO component
+        !('tag' in hiccupNode[1]) && !('view' in hiccupNode[1])) {
+            attrs = hiccupNode[1];
+            childrenStartIndex = 2;
     }
 
-    // 4. Process children
+    // Process children
     // Recursively call htm for each child.
     // This builds up the array of child vnodes or primitives.
     // Mithril's m() function handles an array of children passed as the third argument.
@@ -60,7 +56,7 @@ function htm(hiccupNode) {
         // Attrs are now passed into the function component's view, so m() shouldn't also pass them.
         attrs = {}; 
     }
-    // 6. Call Mithril's m() to create the virtual DOM node
+    // Call Mithril's m() to create the virtual DOM node
     // All attributes (including 'class', 'id', 'x-data', 'v-bind:foo', etc.)
     // are passed directly to Mithril.
     // Mithril handles CSS selectors in the tag string (e.g., 'div#myId.myClass').
