@@ -1,0 +1,16 @@
+# Test files
+/test/
+
+# Jest configuration
+jest.config.js
+
+# Node modules (npm handles this anyway, but good practice)
+/node_modules/
+
+# Coverage reports
+/coverage/
+
+# Editor/OS specific files
+.DS_Store
+*.log
+.vscode/

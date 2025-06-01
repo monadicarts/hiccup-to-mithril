@@ -39,34 +39,39 @@
     "node": ">=18.0.0",
     "npm": ">=8.6.0"
   },
-  "dependencies": {
-    "mithril": "^2.3.0",
-    "mithril-node-render": "^3.0.2"
-  },
-  "devDependencies": {
-    "@babel/core": "^7.27.1",
-    "@babel/preset-env": "^7.27.2",
-    "babel-jest": "^29.7.0",
-    "jest": "^29.7.0"
-  },
   "files": [
     "src/",
     "README.md",
     "LICENSE"
   ],
-  "transform": {
-    "^.+\\.jsx?$": "babel-jest"
+  "dependencies": {
+    "mithril-node-render": "^3.0.2"
   },
-  "extensionsToTreatAsEsm": [
-    ".jsx",
-    ".js"
-  ],
-  "testEnvironment": "node",
-  "testMatch": [
-    "**/?(*.)+(spec|test).[jt]s?(x)"
-  ],
-  "moduleNameMapper": {
-    "^(\\.{1,2}/.*)\\.js$": "$1"
+  "peerDependencies": {
+    "mithril": "^2.3.0"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.27.1",
+    "@babel/preset-env": "^7.27.2",
+    "babel-jest": "^29.7.0",
+    "jest": "^29.7.0",
+    "mithril": "^2.3.0"
+  },
+  "jest": {
+    "transform": {
+      "^.+\\.jsx?$": "babel-jest"
+    },
+    "extensionsToTreatAsEsm": [
+      ".jsx",
+      ".js"
+    ],
+    "testEnvironment": "node",
+    "testMatch": [
+      "**/?(*.)+(spec|test).[jt]s?(x)"
+    ],
+    "moduleNameMapper": {
+      "^(\\.{1,2}/.*)\\.js$": "$1"
+    }
   },
   "repository": {
     "type": "git",

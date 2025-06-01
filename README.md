@@ -73,7 +73,6 @@ const vnode6 = htm(['p', 'Age: ', 30, null, ['em', ' (approx)']]); // null is ig
 ### `renderHtmToHtmlString(hiccupNode, options?)`
 
 Renders a Hiccup node to an HTML string (useful for SSR).
-
 ```javascript
 import hiccupToMithril, { m } from 'hiccup-to-mithril'; // Can also import m
 const { renderHtmToHtmlString } = hiccupToMithril;
